@@ -19,7 +19,8 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      BreakTime
+      Web
   other-modules:
       Paths_break_time_hs
   hs-source-dirs:
@@ -50,7 +51,7 @@ executable break-time
       Paths_break_time_hs
   hs-source-dirs:
       app
-  ghc-options: -threaded -rtsopts -- -with-rtsopts=-N
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base
     , break-time-hs
