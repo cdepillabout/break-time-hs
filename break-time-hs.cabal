@@ -1,0 +1,57 @@
+cabal-version: 1.12
+
+name:           break-time-hs
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/cdepillabout/break-time-hs#readme>
+homepage:       https://github.com/cdepillabout/break-time-hs#readme
+author:         Dennis Gosnell
+maintainer:     cdep.illabout@gmail.com
+copyright:      Copyright (c) 2022 Dennis Gosnell
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/cdepillabout/break-time-hs
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_break_time_hs
+  hs-source-dirs:
+      src
+  build-depends:
+      -- Only tested on GHC-8.10.7, but I wouldn't be surprised if it worked
+      -- with other GHC versions.
+      base >=4.14 && <4.15
+    , aeson
+    , async
+    , bytestring
+    , cassava
+    , conduit
+    , conduit-extra
+    , http-types
+    , lens
+    , scotty
+    , stm
+    , text
+    , time
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+executable break-time
+  main-is: Main.hs
+  other-modules:
+      Paths_break_time_hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -- -with-rtsopts=-N
+  build-depends:
+      base
+    , break-time-hs
+  default-language: Haskell2010
